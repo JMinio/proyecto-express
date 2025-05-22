@@ -40,11 +40,5 @@ app.get('/name/:name/age/:age', (req,res) => {
     res.send(`El usuario ${req.params.name} tiene ${req.params.age} años`)
 })
 
-//otro ejemplo de parametros pero separados
-app.get('/x/:x/y/:y', (req,res) => {
-    const {x,y} = req.params;
-    res.send(`Resultado de la suma: ${parseInt(x) + parseInt(y)}`)
-})
-
 app.listen(3000)
 console.log(`Server on port ${3000}`)
