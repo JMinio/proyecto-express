@@ -40,5 +40,27 @@ app.get('/name/:name/age/:age', (req,res) => {
     res.send(`El usuario ${req.params.name} tiene ${req.params.age} años`)
 })
 
+//QUERIES
+//URL -> http://localhost:3000/users?name=juli&lastname=mino
+//Salida: name:juli, lastname:mino
+app.get('/users', (req,res) => {
+    console.log(req.query)
+    console.log(req.query.name)
+    console.log(req.query.lastname)
+})
+
+//VALIDACION DE QUERY
+app.get('/search', (req,res) => {
+    if(req.query.q === "javascript"){
+        res.send("URL: Javascript")
+    }else{
+        res.send("La barra de busqueda esta vacia.")
+    }
+
+    /* Si en la url colocamos 2 variables iguales (?user=lucas&user=fabian) 
+    Lo que da como resultado es un vector user con esos 2 valores.
+    */
+})
+
 app.listen(3000)
 console.log(`Server on port ${3000}`)
